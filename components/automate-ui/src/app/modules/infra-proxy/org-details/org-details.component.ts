@@ -103,6 +103,9 @@ export class OrgDetailsComponent implements OnInit, OnDestroy {
         this.telemetryService.track('orgDetailsTab', 'clients');
         break;
       case 5:
+        this.telemetryService.track('orgDetailsTab', 'resetkey');
+        break;
+      case 5:
         this.telemetryService.track('orgDetailsTab', 'org-edit');
         break;
     }
