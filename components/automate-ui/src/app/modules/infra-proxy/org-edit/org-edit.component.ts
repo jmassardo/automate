@@ -38,8 +38,7 @@ export class OrgEditComponent implements OnInit, OnDestroy {
   ) {
       this.updateOrgForm = this.fb.group({
         name: new FormControl({value: ''}, [Validators.required]),
-        admin_user: new FormControl({value: ''}, [Validators.required]),
-        admin_key: new FormControl({value: ''})
+        admin_user: new FormControl({value: ''}, [Validators.required])
       });
    }
 
@@ -69,7 +68,6 @@ export class OrgEditComponent implements OnInit, OnDestroy {
       this.org = { ...orgState };
       this.updateOrgForm.controls['name'].setValue(this.org.name);
       this.updateOrgForm.controls['admin_user'].setValue(this.org.admin_user);
-      this.updateOrgForm.controls['admin_key'].setValue(this.org.admin_key);
     });
 
     this.store.select(updateStatus).pipe(
@@ -89,9 +87,8 @@ export class OrgEditComponent implements OnInit, OnDestroy {
     this.saveInProgress = true;
     const name: string = this.updateOrgForm.controls.name.value.trim();
     const admin_user: string = this.updateOrgForm.controls.admin_user.value.trim();
-    const admin_key: string = this.updateOrgForm.controls.admin_key.value.trim();
     this.store.dispatch(new UpdateOrg({
-      org: {...this.org, name, admin_user, admin_key}
+      org: {...this.org, name, admin_user}
     }));
   }
 

@@ -80,7 +80,6 @@ describe('ChefServerDetailsComponent', () => {
       id: '1',
       name: 'new org',
       admin_user: 'new org user',
-      admin_key: 'new admin key',
       server_id: '39cabe9d-996e-42cd-91d0-4335b2480aaf'
     };
 
@@ -108,7 +107,6 @@ describe('ChefServerDetailsComponent', () => {
       component.orgForm.controls['id'].setValue(org.id);
       component.orgForm.controls['name'].setValue(org.name);
       component.orgForm.controls['admin_user'].setValue(org.admin_user);
-      component.orgForm.controls['admin_key'].setValue(org.admin_key);
       component.createServerOrg();
 
       const conflict = <HttpErrorResponse>{
@@ -126,7 +124,6 @@ describe('ChefServerDetailsComponent', () => {
       component.orgForm.controls['id'].setValue(org.id);
       component.orgForm.controls['name'].setValue(org.name);
       component.orgForm.controls['admin_user'].setValue(org.admin_user);
-      component.orgForm.controls['admin_key'].setValue(org.admin_key);
       component.createServerOrg();
 
       store.dispatch(new CreateOrgSuccess({'org': org}));
@@ -139,7 +136,6 @@ describe('ChefServerDetailsComponent', () => {
       component.orgForm.controls['id'].setValue(org.id);
       component.orgForm.controls['name'].setValue(org.name);
       component.orgForm.controls['admin_user'].setValue(org.admin_user);
-      component.orgForm.controls['admin_key'].setValue(org.admin_key);
       component.createServerOrg();
 
       const error = <HttpErrorResponse>{
