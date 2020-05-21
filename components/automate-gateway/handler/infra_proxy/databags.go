@@ -31,6 +31,7 @@ func (a *InfraProxyServer) GetDataBags(ctx context.Context, r *gwreq.DataBags) (
 	req := &infra_req.DataBags{
 		OrgId:    r.OrgId,
 		ServerId: r.ServerId,
+		Name:     r.Name,
 	}
 	res, err := a.client.GetDataBags(ctx, req)
 	if err != nil {
